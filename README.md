@@ -502,3 +502,47 @@ function solution(N, A) {
 ```
 
 <br>
+
+### 10. MaxCounters
+
+<details>
+  <summary>Task description</summary>
+
+This is a demo task.
+
+Write a function:
+
+function solution(A);
+
+that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+
+For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
+
+Given A = [1, 2, 3], the function should return 4.
+
+Given A = [−1, −3], the function should return 1.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+each element of array A is an integer within the range [−1,000,000..1,000,000].
+</details>
+
+```js
+function solution(A) {
+    const sortedNumbers = [...new Set(A)]
+        .filter(number => number > 0)
+        .sort((a, b) => a - b)
+    const [firstNumber] = sortedNumbers
+    const lastNumber = [...sortedNumbers].pop()
+
+    if (firstNumber !== 1) return 1
+    if (lastNumber === sortedNumbers.length) return lastNumber + 1
+
+    for (let i = 0; i < sortedNumbers.length; i++) {
+        if (sortedNumbers[i] !== i + 1) return i + 1
+    }
+}
+```
+
+<br>
