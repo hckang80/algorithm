@@ -670,7 +670,7 @@ string S consists only of upper-case English letters A, C, G, T.
 </details>
 
 ```js
-// 첫 도전 62% O(N * M)
+// 1차 62% O(N * M)
 function solution(S, P, Q) {
     const letters = {
         A: 1,
@@ -681,6 +681,19 @@ function solution(S, P, Q) {
     const results = P.map((start, index) => {
         const [letter] = [...new Set(S.slice(start, Q[index] + 1))].sort()
         return letters[letter]
+    })
+    return results
+}
+
+// 2차 100% O(N + M)
+function solution(S, P, Q) {
+    const results = []
+    P.forEach((start, index) => {
+        const range = S.slice(start, Q[index] + 1)
+        if (range.includes('A')) return results.push(1)
+        if (range.includes('C')) return results.push(2)
+        if (range.includes('G')) return results.push(3)
+        if (range.includes('T')) return results.push(4)
     })
     return results
 }
