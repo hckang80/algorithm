@@ -3,7 +3,7 @@
 
 https://app.codility.com
 
-### 14. MinAvgTwoSlice
+### MinAvgTwoSlice
 
 <details>
   <summary>Task description</summary>
@@ -75,7 +75,7 @@ function solution(A) {
 
 <br>
 
-### 13. GenomicRangeQuery
+### GenomicRangeQuery
 
 <details>
   <summary>Task description</summary>
@@ -150,7 +150,7 @@ function solution(S, P, Q) {
 
 <br>
 
-### 12. CountDiv
+### CountDiv
 
 <details>
   <summary>Task description</summary>
@@ -180,7 +180,7 @@ function solution(A, B, K) {
 
 <br>
 
-### 11. PassingCars
+### PassingCars
 
 <details>
   <summary>Task description</summary>
@@ -229,7 +229,7 @@ each element of array A is an integer that can have one of the following values:
 
 <br>
 
-### 10. MissingInteger
+### MissingInteger
 
 <details>
   <summary>Task description</summary>
@@ -273,7 +273,7 @@ function solution(A) {
 
 <br>
 
-### 9. MaxCounters
+### MaxCounters
 
 <details>
   <summary>Task description</summary>
@@ -354,7 +354,7 @@ function solution(N, A) {
 
 <br>
 
-### 8. PermCheck
+### PermCheck
 
 <details>
   <summary>Task description</summary>
@@ -415,7 +415,7 @@ function solution(A) {
 
 <br>
 
-### 7. FrogRiverOne
+### FrogRiverOne
 
 <details>
   <summary>Task description</summary>
@@ -477,7 +477,7 @@ function solution(X, A) {
 
 <br>
 
-### 6. TapeEquilibrium
+### TapeEquilibrium
 
 <details>
   <summary>Task description</summary>
@@ -546,7 +546,7 @@ function solution(A) {
 
 <br>
 
-### 5. PermMissingElem
+### PermMissingElem
 
 <details>
   <summary>Task description</summary>
@@ -594,7 +594,7 @@ function solution(A) {
 
 <br>
 
-### 4. FrogJmp
+### FrogJmp
 
 <details>
   <summary>Task description</summary>
@@ -633,7 +633,7 @@ function solution(X, Y, D) {
 
 <br>
 
-### 3. OddOccurrencesInArray
+### OddOccurrencesInArray
 
 <details>
   <summary>Task description</summary>
@@ -684,7 +684,7 @@ function solution(A) {
 
 <br>
 
-### 2. CyclicRotation
+### CyclicRotation
 
 <details>
   <summary>Task description</summary>
@@ -737,7 +737,7 @@ function solution(A, K) {
 
 <br>
 
-### 1. BinaryGap
+### BinaryGap
 
 <details>
   <summary>Task description</summary>
