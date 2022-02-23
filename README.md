@@ -71,6 +71,30 @@ function solution(A) {
     })
     return results.index
 }
+
+// 2차 100% O(N)
+// 두 수 또는 세 수의 평균만 확인하면 된다는 수학적 공식을 알고 있어야 풀 수 있는 문제였다. 이를 힌트삼아 작성해 보았다.
+function toAverage(array = []) {
+    return array.reduce((sum, number) => sum + number) / array.length
+}
+
+function solution(A) {
+    const minimum = {
+        starting: null,
+        average: null
+    }
+    for (let index = 0; index < A.length - 1; index++) {
+        const average = Math.min(toAverage(A.slice(index, index + 2)), toAverage(A.slice(index, index + 3)))
+        if (typeof minimum.starting === 'number') {
+            minimum.average > average &&
+                (minimum.starting = index, minimum.average = average)
+        } else {
+            minimum.starting = index
+            minimum.average = average
+        }
+    }
+    return minimum.starting
+}
 ```
 
 <br>
