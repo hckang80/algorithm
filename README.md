@@ -48,6 +48,18 @@ each element of array A is an integer within the range [−1,000..1,000].
 </details>
 
 ```js
+// 3차 100% O(N * log(N))
+// (그냥 간단하게 가장 큰 3개수의 곱, 그리고 가장 큰 수와 가장 작은 2개수의 곱을 비교하면 되는 것이었다. 어쩐지 난이도가 Easy로 표기되어 있더라니...)
+function multiply(array = []) {
+    return array.reduce((multiplied, number) => multiplied * number, 1)
+}
+
+function solution(A) {
+    const sortedNumbers = [...A].sort((a, b) => b - a)
+    const result = Math.max(multiply(sortedNumbers.slice(0, 3)), multiply([sortedNumbers[0], ...sortedNumbers.slice(-2)]))
+    return result
+}
+
 // 2차 88% 1개 오답(예상치 못한 경우 오답 발생, [4, 7, 3, 2, 1, -3, -5])
 function multifly(array = []) {
     return array.reduce((multiflied, number) => multiflied * number, 1)
