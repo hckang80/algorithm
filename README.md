@@ -3,6 +3,59 @@
 
 https://app.codility.com
 
+### MaxProductOfThree
+
+<details>
+  <summary>Task description</summary>
+
+A non-empty array A consisting of N integers is given. The product of triplet (P, Q, R) equates to A[P] * A[Q] * A[R] (0 ≤ P < Q < R < N).
+
+For example, array A such that:
+
+  A[0] = -3
+  A[1] = 1
+  A[2] = 2
+  A[3] = -2
+  A[4] = 5
+  A[5] = 6
+contains the following example triplets:
+
+(0, 1, 2), product is −3 * 1 * 2 = −6
+(1, 2, 4), product is 1 * 2 * 5 = 10
+(2, 4, 5), product is 2 * 5 * 6 = 60
+Your goal is to find the maximal product of any triplet.
+
+Write a function:
+
+function solution(A);
+
+that, given a non-empty array A, returns the value of the maximal product of any triplet.
+
+For example, given array A such that:
+
+  A[0] = -3
+  A[1] = 1
+  A[2] = 2
+  A[3] = -2
+  A[4] = 5
+  A[5] = 6
+the function should return 60, as the product of triplet (2, 4, 5) is maximal.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [3..100,000];
+each element of array A is an integer within the range [−1,000..1,000].
+</details>
+
+```js
+// 1차 100% O(N*log(N)) or O(N)
+function solution(A) {
+    return new Set(A).size
+}
+```
+
+<br>
+
 ### Distinct
 
 <details>
@@ -23,9 +76,22 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 </details>
 
 ```js
-// 1차 100% O(N*log(N)) or O(N)
+// 1차 77% 2개가 오답(음수만 있는 경우 오답 발생)
+function multifly(array = []) {
+    return array.reduce((multiflied, number) => multiflied * number, 1)
+}
+
 function solution(A) {
-    return new Set(A).size
+    const isNegativeOnly = A.every(number => number < 0)
+    const sortedNumbers = [...A].sort((a, b) => b - a)
+    const multiflied = {
+        positive: sortedNumbers.slice(0, 2),
+        negative: sortedNumbers.slice(-2)
+    }
+    const big3 = multifly(multiflied.positive) > multifly(multiflied.negative) || isNegativeOnly
+        ? sortedNumbers.slice(0, 3)
+        : [sortedNumbers[0], ...multiflied.negative]
+    return multifly(big3)
 }
 ```
 
