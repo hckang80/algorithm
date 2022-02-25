@@ -76,7 +76,25 @@ each element of array A is an integer within the range [−1,000,000..1,000,000]
 </details>
 
 ```js
-// 1차 77% 2개가 오답(음수만 있는 경우 오답 발생)
+// 2차 88% 1개 오답(예상치 못한 경우 오답 발생, [4, 7, 3, 2, 1, -3, -5])
+function multifly(array = []) {
+    return array.reduce((multiflied, number) => multiflied * number, 1)
+}
+
+function solution(A) {
+    const isNegativeOnly = A.every(number => number < 0)
+    const sortedNumbers = [...A].sort((a, b) => b - a)
+    const multiflied = {
+        positive: sortedNumbers.slice(0, 2),
+        negative: sortedNumbers.slice(-2)
+    }
+    const big3 = multifly(multiflied.positive) > multifly(multiflied.negative) || isNegativeOnly
+        ? sortedNumbers.slice(0, 3)
+        : [sortedNumbers[0], ...multiflied.negative]
+    return multifly(big3)
+}
+
+// 1차 77% 2개 오답(음수만 있는 경우 오답 발생)
 function multifly(array = []) {
     return array.reduce((multiflied, number) => multiflied * number, 1)
 }
