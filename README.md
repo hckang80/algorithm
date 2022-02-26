@@ -49,7 +49,7 @@ each element of array A is an integer within the range [−1,000..1,000].
 
 ```js
 // 3차 100% O(N * log(N))
-// (그냥 간단하게 가장 큰 3개수의 곱, 그리고 가장 큰 수와 가장 작은 2개수의 곱을 비교하면 되는 것이었다. 어쩐지 난이도가 Easy로 표기되어 있더라니...)
+// (가장 큰 3수의 곱, 그리고 가장 작은 2수의 곱 * 가장 큰 수를 비교하면 되는 것이었다. 어쩐지 난이도가 Easy로 표기되어 있더라니...)
 function multiply(array = []) {
     return array.reduce((multiplied, number) => multiplied * number, 1)
 }
