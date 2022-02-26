@@ -3,6 +3,59 @@
 
 https://app.codility.com
 
+### Triangle
+
+<details>
+  <summary>Task description</summary>
+
+An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
+
+A[P] + A[Q] > A[R],
+A[Q] + A[R] > A[P],
+A[R] + A[P] > A[Q].
+For example, consider array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 20
+Triplet (0, 2, 4) is triangular.
+
+Write a function:
+
+function solution(A);
+
+that, given an array A consisting of N integers, returns 1 if there exists a triangular triplet for this array and returns 0 otherwise.
+
+For example, given array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 20
+the function should return 1, as explained above. Given array A such that:
+
+  A[0] = 10    A[1] = 50    A[2] = 5
+  A[3] = 1
+the function should return 0.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [0..100,000];
+each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
+</details>
+
+```js
+// 1차 100% O(N*log(N))
+// (순서대로 정렬 후 인접한 세 수에서 작은 두 수의 합이 가장 큰 수를 초과하는지 확인하면 된다. 2 이상의 수가 3개가 안되면 조건을 충족할 수 없으므로 early 리턴 처리했다.)
+function solution(A) {
+    const sortedNumbers = A.filter(number => number > 1).sort((a, b) => b - a)
+    if (sortedNumbers.length < 3) return 0
+    for (let i = 0; i < sortedNumbers.length; i++) {
+        if (sortedNumbers[i] < sortedNumbers[i + 1] + sortedNumbers[i + 2]) return 1
+    }
+    return 0
+}
+```
+
+<br>
+
 ### MaxProductOfThree
 
 <details>
