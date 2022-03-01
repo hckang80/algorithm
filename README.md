@@ -30,6 +30,29 @@ string S consists only of the following characters: "(", "{", "[", "]", "}" and/
 </details>
 
 ```js
+// 3차 100% (닫는 괄호가 오는 경우 복사본으로 array.pop()하는 과정을 제거하였다.)
+function solution(S) {
+    const array = []
+    const brackets = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    }
+    for (let i = 0; i < S.length; i++) {
+        const openedBracket = brackets[S[i]]
+        if (openedBracket) {
+            array.push(S[i])
+        } else {
+            const lastedBracket = array.pop()
+            if (!lastedBracket || brackets[lastedBracket] !== S[i]) {
+                return 0
+            }
+        }
+    }
+    if (array.length) return 0
+  
+}
+
 // 2차 75% (TIMEOUT ERROR)
 function solution(S) {
     if (S.length % 2) return 0
