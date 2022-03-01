@@ -30,6 +30,32 @@ string S consists only of the following characters: "(", "{", "[", "]", "}" and/
 </details>
 
 ```js
+// 2차 75% (TIMEOUT ERROR)
+function solution(S) {
+    if (S.length % 2) return 0
+    const array = []
+    const brackets = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    }
+    for (let i = 0; i < S.length; i++) {
+        const openedBracket = brackets[S[i]]
+        if (openedBracket) {
+            array.push(S[i])
+        } else {
+            const lastedBracket = [...array].pop()
+            if (brackets[lastedBracket] === S[i]) {
+                array.pop()
+            } else {
+                return 0
+            }
+        }
+    }
+    if (array.length) return 0
+    return 1
+}
+
 // 1차 62% (TIMEOUT ERROR)
 function solution(S) {
     const array = []
